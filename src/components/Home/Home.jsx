@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import PetCTScanner from "../PetCTScanner/PetCTScanner";
+import PetCTScanner from "../PETCTScanner/PetCTScanner.jsx";
 import TypingEffect from "react-typing-effect";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
