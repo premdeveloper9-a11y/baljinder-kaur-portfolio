@@ -1,0 +1,46 @@
+/* =====================================================
+            GLOBAL SECTION SPACING
+===================================================== */
+#home {
+    margin-top: 20px;
+}
+#about,
+#projects,
+#contact {
+    margin-top: 80px;
+}
+
+
+/* =====================================================
+                    MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+    #home {
+        margin-top: 20px;
+    }
+    #about,
+    #projects,
+    #contact {
+        margin-top: 60px;
+    }
+
+}
+
+
+/* =====================================================
+                SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    #home {
+        margin-top: 20px;
+    }
+    #about,
+    #projects,
+    #contact {
+        margin-top: 45px;
+    }
+
+}

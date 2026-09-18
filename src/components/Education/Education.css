@@ -1,0 +1,1547 @@
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 130px 7% 100px;
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(0, 210, 245, 0.035),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(0, 180, 220, 0.035),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.education-section::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  opacity: 0.09;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 220, 255, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 220, 255, 0.05) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.education-container {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.education-eyebrow {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  color: #58eaff;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.education-eyebrow span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #58eaff;
+
+  box-shadow:
+    0 0 8px rgba(88, 234, 255, 0.9),
+    0 0 18px rgba(88, 234, 255, 0.3);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.education-heading {
+  max-width: 850px;
+}
+
+.education-heading h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 6rem);
+
+  line-height: 0.92;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+}
+
+.education-heading h2 span {
+  color: #58eaff;
+
+  font-weight: 600;
+}
+
+.education-intro {
+  max-width: 650px;
+
+  margin: 26px 0 0;
+
+  color: rgba(220, 238, 243, 0.55);
+
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.education-main {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 70px;
+
+  margin-top: 70px;
+}
+
+
+/* =========================================================
+   QUALIFICATION LIST
+========================================================= */
+
+.qualification-list {
+  position: relative;
+
+  padding-left: 30px;
+}
+
+.qualification-list::before {
+  content: "";
+
+  position: absolute;
+
+  left: 8px;
+  top: 10px;
+  bottom: 10px;
+
+  width: 1px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(78, 224, 247, 0.25),
+      rgba(78, 224, 247, 0.12),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   QUALIFICATION ITEM
+========================================================= */
+
+.qualification-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 45px 1fr;
+
+  min-height: 180px;
+
+  margin-bottom: 12px;
+}
+
+.qualification-item.last {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   MARKER
+========================================================= */
+
+.qualification-marker {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.qualification-marker > span {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  margin-top: 5px;
+
+  border: 1px solid rgba(83, 228, 249, 0.25);
+
+  border-radius: 50%;
+
+  color: rgba(90, 229, 248, 0.6);
+
+  background: #06131b;
+
+  font-size: 5px;
+
+  letter-spacing: 0.5px;
+}
+
+.qualification-marker::before {
+  content: "";
+
+  position: absolute;
+
+  top: 13px;
+  left: 0;
+
+  width: 45px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(80, 225, 245, 0.15),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   MINIMAL FUTURISTIC QUALIFICATION CARDS
+========================================================= */
+
+.qualification-content {
+  position: relative;
+
+  min-height: 160px;
+
+  padding: 24px 28px;
+
+  border: 1px solid rgba(75, 220, 245, 0.12);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(7, 28, 38, 0.38),
+      rgba(4, 16, 23, 0.16)
+    );
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* Subtle animated light line */
+
+.qualification-content::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(88, 234, 255, 0.8),
+      transparent
+    );
+
+  transition: left 0.6s ease;
+}
+
+
+/* Small left accent line */
+
+.qualification-content::after {
+  content: "";
+
+  position: absolute;
+
+  top: 18px;
+  left: 0;
+
+  width: 2px;
+  height: 0;
+
+  background: #58eaff;
+
+  box-shadow: 0 0 12px rgba(88, 234, 255, 0.8);
+
+  transition: height 0.35s ease;
+}
+
+
+/* Hover */
+
+.qualification-content:hover {
+  transform: translateX(7px);
+
+  border-color: rgba(88, 234, 255, 0.28);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(8, 36, 48, 0.58),
+      rgba(4, 17, 24, 0.24)
+    );
+
+  box-shadow:
+    0 0 25px rgba(0, 210, 245, 0.035),
+    inset 0 0 20px rgba(0, 210, 245, 0.018);
+}
+
+.qualification-content:hover::before {
+  left: 100%;
+}
+
+.qualification-content:hover::after {
+  height: calc(100% - 36px);
+}
+
+
+/* =========================================================
+   CURRENT MBA CARD
+========================================================= */
+
+.qualification-item.current .qualification-content {
+  border-color: rgba(88, 234, 255, 0.25);
+
+  background:
+    linear-gradient(
+      110deg,
+      rgba(8, 39, 52, 0.58),
+      rgba(4, 18, 26, 0.2)
+    );
+
+  box-shadow:
+    inset 3px 0 0 rgba(88, 234, 255, 0.35),
+    0 0 30px rgba(0, 210, 245, 0.035);
+}
+
+.qualification-item.current .qualification-content::after {
+  height: calc(100% - 36px);
+
+  opacity: 0.7;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.qualification-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.qualification-meta span {
+  color: rgba(88, 229, 247, 0.55);
+
+  font-size: 7px;
+
+  letter-spacing: 1.8px;
+}
+
+.qualification-meta small {
+  color: rgba(88, 229, 247, 0.22);
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   QUALIFICATION ICON
+========================================================= */
+
+.qualification-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  margin-bottom: 14px;
+
+  border: 1px solid rgba(88, 234, 255, 0.2);
+
+  color: rgba(88, 234, 255, 0.9);
+
+  background: rgba(0, 220, 255, 0.025);
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.qualification-content:hover .qualification-icon {
+  border-color: rgba(88, 234, 255, 0.45);
+
+  background: rgba(0, 220, 255, 0.06);
+
+  box-shadow:
+    0 0 15px rgba(88, 234, 255, 0.08);
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.qualification-content h3 {
+  margin: 0;
+
+  color: rgba(242, 249, 251, 0.92);
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.3px;
+}
+
+.qualification-content h4 {
+  margin: 7px 0 0;
+
+  color: rgba(205, 228, 234, 0.5);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+}
+
+.qualification-content p {
+  margin: 10px 0 0;
+
+  color: rgba(200, 225, 232, 0.43);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.qualification-status {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 12px;
+
+  color: rgba(90, 230, 248, 0.7);
+
+  font-size: 6px;
+
+  letter-spacing: 1.5px;
+}
+
+.qualification-status span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #58eaff;
+
+  box-shadow:
+    0 0 7px rgba(88, 234, 255, 0.75);
+}
+
+.qualification-status.completed {
+  color: rgba(200, 230, 235, 0.38);
+}
+
+.qualification-status.completed span {
+  opacity: 0.45;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   COMPACT QUALIFICATION CARDS
+========================================================= */
+
+.qualification-item.compact {
+  min-height: 145px;
+}
+
+.qualification-item.compact .qualification-content {
+  min-height: 125px;
+
+  padding: 20px 28px;
+}
+
+.qualification-item.compact .qualification-icon {
+  width: 30px;
+  height: 30px;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+}
+
+.qualification-item.compact .qualification-content h3 {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   MOBILE CARD ADJUSTMENT
+========================================================= */
+
+@media (max-width: 768px) {
+  .qualification-content {
+    padding: 20px;
+  }
+
+  .qualification-content:hover {
+    transform: translateX(3px);
+  }
+
+  .qualification-content h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .qualification-content {
+    padding: 18px;
+  }
+
+  .qualification-content h3 {
+    font-size: 18px;
+  }
+}
+
+
+/* =========================================================
+   CURRENT
+========================================================= */
+
+.qualification-item.current .qualification-content {
+  border-color: rgba(80, 225, 248, 0.18);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 38, 51, 0.65),
+      rgba(4, 18, 26, 0.4)
+    );
+}
+
+.qualification-item.current .qualification-marker > span {
+  border-color: #58eaff;
+
+  color: #58eaff;
+
+  box-shadow:
+    0 0 12px rgba(88, 234, 255, 0.18);
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.qualification-meta {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 15px;
+}
+
+.qualification-meta span {
+  color: rgba(88, 229, 247, 0.48);
+
+  font-size: 7px;
+
+  letter-spacing: 1.8px;
+}
+
+.qualification-meta small {
+  color: rgba(88, 229, 247, 0.2);
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.qualification-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+
+  margin-bottom: 14px;
+
+  border: 1px solid rgba(78, 225, 248, 0.13);
+
+  color: #58eaff;
+
+  background: rgba(0, 220, 255, 0.025);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.qualification-content h3 {
+  margin: 0;
+
+  color: rgba(242, 249, 251, 0.9);
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.3px;
+}
+
+.qualification-content h4 {
+  margin: 7px 0 0;
+
+  color: rgba(205, 228, 234, 0.48);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+}
+
+.qualification-content p {
+  margin: 10px 0 0;
+
+  color: rgba(200, 225, 232, 0.4);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.qualification-status {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 7px;
+
+  margin-top: 12px;
+
+  color: rgba(90, 230, 248, 0.65);
+
+  font-size: 6px;
+
+  letter-spacing: 1.5px;
+}
+
+.qualification-status span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #58eaff;
+
+  box-shadow:
+    0 0 7px rgba(88, 234, 255, 0.7);
+}
+
+.qualification-status.completed {
+  color: rgba(200, 230, 235, 0.35);
+}
+
+.qualification-status.completed span {
+  opacity: 0.45;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   COMPACT ITEMS
+========================================================= */
+
+.qualification-item.compact {
+  min-height: 145px;
+}
+
+.qualification-item.compact .qualification-content {
+  min-height: 125px;
+
+  padding: 20px 28px;
+}
+
+.qualification-item.compact .qualification-icon {
+  width: 30px;
+  height: 30px;
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+}
+
+.qualification-item.compact .qualification-content h3 {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   EDUCATION RADIATION VISUAL
+   No rectangular box
+========================================================= */
+
+.qualification-visual {
+  position: relative;
+
+  min-height: 620px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: none;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   HIDE OLD VISUAL ELEMENTS
+========================================================= */
+
+.education-visual-grid,
+.education-scan-line,
+.education-data {
+  display: none;
+}
+
+
+/* =========================================================
+   RADIATION RINGS
+========================================================= */
+
+.education-scan-circle {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   OUTER RING
+========================================================= */
+
+.qualification-visual .circle-one {
+  width: 430px;
+  height: 430px;
+
+  border: 1px solid rgba(88, 234, 255, 0.15);
+
+  box-shadow:
+    0 0 25px rgba(88, 234, 255, 0.025),
+    inset 0 0 30px rgba(88, 234, 255, 0.018);
+
+  animation:
+    educationOuterPulse
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   MIDDLE RING
+========================================================= */
+
+.qualification-visual .circle-two {
+  width: 315px;
+  height: 315px;
+
+  border: 1px dashed rgba(88, 234, 255, 0.22);
+
+  animation:
+    educationMiddlePulse
+    4s
+    ease-in-out
+    infinite;
+
+  animation-delay: 0.6s;
+}
+
+
+/* =========================================================
+   INNER RING
+========================================================= */
+
+.qualification-visual .circle-three {
+  width: 185px;
+  height: 185px;
+
+  border: 1px solid rgba(88, 234, 255, 0.36);
+
+  box-shadow:
+    0 0 18px rgba(88, 234, 255, 0.035),
+    inset 0 0 25px rgba(88, 234, 255, 0.025);
+
+  animation:
+    educationInnerPulse
+    3.2s
+    ease-in-out
+    infinite;
+
+  animation-delay: 1s;
+}
+
+
+/* =========================================================
+   ROTATING RADAR ARC
+========================================================= */
+
+.qualification-visual .circle-one::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 235deg,
+      rgba(88, 234, 255, 0.03) 255deg,
+      rgba(88, 234, 255, 0.8) 292deg,
+      rgba(88, 234, 255, 0.12) 320deg,
+      transparent 350deg
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 1px)
+    );
+
+  mask:
+    radial-gradient(
+      farthest-side,
+      transparent calc(100% - 2px),
+      #000 calc(100% - 1px)
+    );
+
+  animation:
+    educationArcRotate
+    7s
+    linear
+    infinite;
+}
+
+
+/* =========================================================
+   CROSS LINES — ONLY TILL OUTER RING
+========================================================= */
+
+.education-cross {
+  position: absolute;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  background: rgba(88, 234, 255, 0.1);
+}
+
+.education-cross.horizontal {
+  top: 50%;
+  left: 50%;
+
+  width: 430px;
+  height: 1px;
+
+  transform: translate(-50%, -50%);
+}
+
+.education-cross.vertical {
+  top: 50%;
+  left: 50%;
+
+  width: 1px;
+  height: 430px;
+
+  transform: translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   CENTER CORE
+========================================================= */
+
+.education-core {
+  position: relative;
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.education-core-inner {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 100px;
+
+  border: 1px solid rgba(88, 234, 255, 0.45);
+
+  border-radius: 50%;
+
+  color: #59eaff;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(88, 234, 255, 0.12),
+      rgba(4, 17, 24, 0.32) 65%,
+      transparent
+    );
+
+  box-shadow:
+    0 0 20px rgba(88, 234, 255, 0.1),
+    0 0 60px rgba(88, 234, 255, 0.035),
+    inset 0 0 25px rgba(88, 234, 255, 0.06);
+
+  font-size: 27px;
+
+  animation:
+    educationCoreGlow
+    3s
+    ease-in-out
+    infinite;
+}
+
+
+/* Small ring around center icon */
+
+.education-core-inner::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -9px;
+
+  border: 1px solid rgba(88, 234, 255, 0.14);
+
+  border-radius: 50%;
+
+  animation:
+    educationCoreRing
+    2.8s
+    ease-out
+    infinite;
+}
+
+
+/* Small orbiting dot */
+
+.education-core-inner::after {
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  right: 18px;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #58eaff;
+
+  box-shadow:
+    0 0 10px rgba(88, 234, 255, 0.9);
+
+  animation:
+    educationDotOrbit
+    4s
+    linear
+    infinite;
+}
+
+.education-core > span {
+  color: rgba(95, 225, 245, 0.4);
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes educationOuterPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.97);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.035);
+    opacity: 1;
+  }
+}
+
+@keyframes educationMiddlePulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.93);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.07);
+    opacity: 0.85;
+  }
+}
+
+@keyframes educationInnerPulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes educationArcRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes educationCoreGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px rgba(88, 234, 255, 0.08),
+      0 0 50px rgba(88, 234, 255, 0.025),
+      inset 0 0 20px rgba(88, 234, 255, 0.04);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(88, 234, 255, 0.2),
+      0 0 75px rgba(88, 234, 255, 0.06),
+      inset 0 0 28px rgba(88, 234, 255, 0.1);
+  }
+}
+
+@keyframes educationCoreRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes educationDotOrbit {
+  from {
+    transform: rotate(0deg) translateX(32px) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(32px) rotate(-360deg);
+  }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.education-footer {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 35px;
+
+  border-top: 1px solid rgba(75, 220, 245, 0.08);
+
+  border-bottom: 1px solid rgba(75, 220, 245, 0.08);
+}
+
+.education-footer div {
+  padding: 18px 20px;
+
+  border-right: 1px solid rgba(75, 220, 245, 0.07);
+
+  color: rgba(100, 225, 245, 0.38);
+
+  font-size: 7px;
+
+  letter-spacing: 1.5px;
+}
+
+.education-footer div:last-child {
+  border-right: none;
+}
+
+.education-footer span {
+  margin-right: 10px;
+
+  color: rgba(88, 231, 251, 0.25);
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .education-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .education-main {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .qualification-visual {
+    min-height: 450px;
+  }
+
+  .qualification-visual .circle-one {
+    width: 350px;
+    height: 350px;
+  }
+
+  .qualification-visual .circle-two {
+    width: 270px;
+    height: 270px;
+  }
+
+  .qualification-visual .circle-three {
+    width: 190px;
+    height: 190px;
+  }
+
+  .education-cross.horizontal {
+    width: 350px;
+  }
+
+  .education-cross.vertical {
+    height: 350px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .education-section {
+    padding-top: 110px;
+  }
+
+  .education-heading h2 {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  .qualification-list {
+    padding-left: 20px;
+  }
+
+  .qualification-item {
+    grid-template-columns: 35px 1fr;
+  }
+
+  .qualification-marker::before {
+    width: 35px;
+  }
+
+  .education-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .education-footer div:nth-child(2) {
+    border-right: none;
+  }
+
+  .education-footer div:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(75, 220, 245, 0.07);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 95px 20px 65px;
+  }
+
+  .education-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .education-heading h2 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+
+    letter-spacing: -2px;
+  }
+
+  .education-intro {
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+  .education-main {
+    margin-top: 48px;
+  }
+
+  .qualification-list {
+    padding-left: 10px;
+  }
+
+  .qualification-list::before {
+    left: -2px;
+  }
+
+  .qualification-item {
+    grid-template-columns: 25px 1fr;
+
+    min-height: 165px;
+  }
+
+  .qualification-marker > span {
+    width: 15px;
+    height: 15px;
+
+    font-size: 4px;
+  }
+
+  .qualification-marker::before {
+    width: 25px;
+  }
+
+  .qualification-content {
+    min-height: 145px;
+
+    padding: 20px;
+  }
+
+  .qualification-content h3 {
+    font-size: 20px;
+  }
+
+  .qualification-content h4 {
+    font-size: 8px;
+  }
+
+  .qualification-content p {
+    font-size: 8px;
+  }
+
+  .qualification-visual {
+    min-height: 370px;
+  }
+
+  .qualification-visual .circle-one {
+    width: 285px;
+    height: 285px;
+  }
+
+  .qualification-visual .circle-two {
+    width: 220px;
+    height: 220px;
+  }
+
+  .qualification-visual .circle-three {
+    width: 165px;
+    height: 165px;
+  }
+
+  .education-cross.horizontal {
+    width: 285px;
+  }
+
+  .education-cross.vertical {
+    height: 285px;
+  }
+
+  .education-core-inner {
+    width: 80px;
+    height: 80px;
+
+    font-size: 22px;
+  }
+
+  .education-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .education-footer div {
+    border-right: none;
+
+    border-bottom: 1px solid rgba(75, 220, 245, 0.07);
+  }
+
+  .education-footer div:last-child {
+    border-bottom: none;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 85px 16px 55px;
+  }
+
+  .education-heading h2 {
+    font-size: 2.6rem;
+  }
+
+  .qualification-content {
+    padding: 18px;
+  }
+
+  .qualification-content h3 {
+    font-size: 18px;
+  }
+
+  .qualification-content h4 {
+    font-size: 7px;
+
+    letter-spacing: 0.7px;
+  }
+
+  .qualification-icon {
+    width: 31px;
+    height: 31px;
+
+    font-size: 12px;
+  }
+
+  .qualification-visual {
+    min-height: 320px;
+  }
+
+  .qualification-visual .circle-one {
+    width: 245px;
+    height: 245px;
+  }
+
+  .qualification-visual .circle-two {
+    width: 190px;
+    height: 190px;
+  }
+
+  .qualification-visual .circle-three {
+    width: 145px;
+    height: 145px;
+  }
+
+  .education-cross.horizontal {
+    width: 245px;
+  }
+
+  .education-cross.vertical {
+    height: 245px;
+  }
+
+  .education-core-inner {
+    width: 70px;
+    height: 70px;
+
+    font-size: 19px;
+  }
+
+  .education-core > span {
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .qualification-visual .circle-one,
+  .qualification-visual .circle-two,
+  .qualification-visual .circle-three,
+  .qualification-visual .circle-one::after,
+  .education-core-inner,
+  .education-core-inner::before,
+  .education-core-inner::after {
+    animation: none;
+  }
+}

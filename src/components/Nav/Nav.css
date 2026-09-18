@@ -1,0 +1,269 @@
+nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(8, 16, 24, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(122, 215, 234, 0.08);
+}
+
+/* LOGO */
+nav h1 {
+  margin: 0;
+  flex-shrink: 0;
+  font-size: 30px;
+  background: linear-gradient(
+    to right,
+    rgb(66, 180, 205),
+    white
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+/* COMMON LIST RESET */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* DESKTOP MENU */
+.desktopmenu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.desktopmenu li {
+  position: relative;
+  color: white;
+  font-size: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.desktopmenu li a {
+  position: relative;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.desktopmenu li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #7ad7ea;
+  transition: 0.35s;
+}
+
+.desktopmenu li a:hover {
+  color: #7ad7ea;
+}
+
+.desktopmenu li a:hover::after {
+  width: 100%;
+}
+
+.desktopmenu li a.active {
+  color: rgb(107, 211, 211);
+  border-bottom: 2px solid white;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.ham {
+  width: 40px;
+  height: 2px;
+  background-color: aliceblue;
+  transition: all 0.5s;
+}
+
+/* MOBILE MENU */
+.mobilemenu {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 50px;
+  background-color: rgba(17, 20, 23, 0.476);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  transform: translateX(100%);
+  transition: all 0.5s;
+}
+
+.mobilemenu li {
+  list-style: none;
+}
+
+.mobilemenu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mobilemenu li a:hover,
+.mobilemenu li a.active {
+  color: #7ad7ea;
+}
+
+/* MOBILE MENU OPEN */
+.activemobile {
+  transform: translateX(0%);
+}
+
+/* HAMBURGER ANIMATION */
+.activeham .ham:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 8px;
+}
+
+.activeham .ham:nth-child(2) {
+  opacity: 0;
+}
+
+.activeham .ham:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -12px;
+}
+
+/* LARGE LAPTOP */
+@media (max-width: 1200px) {
+  nav {
+    padding: 18px 40px;
+  }
+
+  nav h1 {
+    font-size: 28px;
+  }
+
+  .desktopmenu {
+    gap: 18px;
+  }
+
+  .desktopmenu li {
+    font-size: 18px;
+  }
+}
+
+/* TABLET */
+@media (max-width: 992px) {
+  nav {
+    height: 75px;
+    padding: 18px 30px;
+  }
+
+  nav h1 {
+    font-size: 26px;
+  }
+
+  .desktopmenu {
+    gap: 16px;
+  }
+
+  .desktopmenu li {
+    font-size: 16px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav {
+    height: 70px;
+    padding: 15px 22px;
+  }
+
+  nav h1 {
+    font-size: 24px;
+  }
+
+  .desktopmenu {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .ham {
+    width: 32px;
+  }
+
+  .mobilemenu {
+    top: 70px;
+    height: calc(100vh - 70px);
+    gap: 40px;
+    padding-top: 50px;
+  }
+
+  .mobilemenu li a {
+    font-size: 24px;
+  }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+  nav {
+    padding: 14px 18px;
+  }
+
+  nav h1 {
+    font-size: 21px;
+  }
+
+  .ham {
+    width: 28px;
+  }
+
+  .mobilemenu li a {
+    font-size: 20px;
+  }
+}
+
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  nav h1 {
+    font-size: 19px;
+  }
+
+  .mobilemenu li a {
+    font-size: 18px;
+  }
+}

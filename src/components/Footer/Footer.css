@@ -1,0 +1,361 @@
+/* =====================================================
+   COMPACT FOOTER
+===================================================== */
+
+#footer {
+  position: relative;
+  width: 100%;
+  padding: 30px 7vw 18px;
+  overflow: hidden;
+  border-top: 1px solid rgba(122, 215, 234, 0.14);
+  color: #eaffff;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(38, 126, 151, 0.1),
+      transparent 42%
+    ),
+    #050d16;
+}
+
+/* Subtle top glow */
+
+#footer::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  width: 280px;
+  height: 220px;
+  border-radius: 50%;
+  background: #7ad7ea;
+  filter: blur(110px);
+  opacity: 0.055;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* =====================================================
+   FOOTER TOP
+===================================================== */
+
+.footerTop {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footerBrand h2 {
+  margin: 0;
+  color: transparent;
+  background: linear-gradient(
+    90deg,
+    #7ad7ea,
+    #ffffff
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.footerBrand span {
+  margin-top: 5px;
+  color: rgba(122, 215, 234, 0.65);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   SOCIAL ICONS
+===================================================== */
+
+.footerSocials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footerSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(122, 215, 234, 0.17);
+  border-radius: 9px;
+  color: rgba(226, 250, 255, 0.6);
+  background: rgba(122, 215, 234, 0.035);
+  font-size: 12px;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.footerSocialLink:hover {
+  color: #06151d;
+  background: #7ad7ea;
+  border-color: #7ad7ea;
+  box-shadow: 0 0 16px rgba(122, 215, 234, 0.25);
+  transform: translateY(-3px);
+}
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.footerLine {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  margin: 25px auto 17px;
+  background: rgba(122, 215, 234, 0.1);
+}
+
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footerBottom {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerBottom p {
+  margin: 0;
+  color: rgba(226, 250, 255, 0.3);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.footerClinicStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: rgba(226, 250, 255, 0.4);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+}
+
+.footerStatusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7ad7ea;
+  box-shadow: 0 0 9px rgba(122, 215, 234, 0.8);
+  animation: footerDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes footerDotPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+.backToTop {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  justify-self: end;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  color: rgba(122, 215, 234, 0.65);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.backToTop svg {
+  font-size: 11px;
+  transition: transform 0.3s ease;
+}
+
+.backToTop:hover {
+  color: #eaffff;
+  transform: translateY(-2px);
+}
+
+.backToTop:hover svg {
+  transform: translateY(-3px);
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 768px) {
+  #footer {
+    padding: 28px 25px 17px;
+  }
+
+  .footerBrand h2 {
+    font-size: 1.25rem;
+  }
+
+  .footerBrand span {
+    font-size: 0.58rem;
+    letter-spacing: 1.5px;
+  }
+
+  .footerBottom {
+    gap: 15px;
+  }
+
+  .footerBottom p {
+    font-size: 0.62rem;
+  }
+
+  .footerClinicStatus {
+    font-size: 0.58rem;
+  }
+
+  .backToTop {
+    font-size: 0.58rem;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 560px) {
+  #footer {
+    padding: 25px 18px 16px;
+  }
+
+  .footerTop {
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .footerBrand {
+    align-items: center;
+  }
+
+  .footerBrand h2 {
+    font-size: 1.25rem;
+  }
+
+  .footerSocials {
+    gap: 9px;
+  }
+
+  .footerSocialLink {
+    width: 33px;
+    height: 33px;
+    font-size: 11px;
+  }
+
+  .footerLine {
+    margin: 22px auto 16px;
+  }
+
+  .footerBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px;
+    text-align: center;
+  }
+
+  .footerClinicStatus {
+    order: 1;
+  }
+
+  .backToTop {
+    order: 2;
+    justify-self: auto;
+  }
+
+  .footerBottom p {
+    order: 3;
+    text-align: center;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 380px) {
+  .footerBrand h2 {
+    font-size: 1.1rem;
+  }
+
+  .footerBrand span {
+    font-size: 0.52rem;
+  }
+
+  .footerBottom p {
+    font-size: 0.58rem;
+  }
+
+  .footerClinicStatus {
+    font-size: 0.54rem;
+  }
+}
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footerStatusDot {
+    animation: none;
+  }
+}

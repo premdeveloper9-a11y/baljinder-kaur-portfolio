@@ -1,0 +1,1518 @@
+/* =========================================================
+   EXPERIENCE SECTION
+========================================================= */
+
+.experience-section {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 130px 7% 100px;
+
+  color: #ffffff;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(0, 220, 255, 0.045),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(0, 160, 220, 0.035),
+      transparent 30%
+    );
+}
+
+
+/* =========================================================
+   BACKGROUND GRID
+========================================================= */
+
+.experience-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.12;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 220, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 220, 255, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 15%,
+      black 85%,
+      transparent
+    );
+}
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.experience-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -300px;
+  top: 25%;
+
+  border-radius: 50%;
+
+  background: rgba(0, 210, 245, 0.06);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.experience-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.experience-eyebrow {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+
+  color: #59eaff;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.experience-eyebrow span {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #59eaff;
+
+  box-shadow:
+    0 0 8px rgba(89, 234, 255, 0.9),
+    0 0 20px rgba(89, 234, 255, 0.3);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.experience-heading {
+  max-width: 850px;
+}
+
+.experience-heading h2 {
+  margin: 0;
+
+  font-size: clamp(3.5rem, 6vw, 6.2rem);
+
+  line-height: 0.92;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+}
+
+.experience-heading h2 span {
+  color: #59eaff;
+
+  font-weight: 600;
+
+  text-shadow:
+    0 0 25px rgba(0, 220, 255, 0.1);
+}
+
+.experience-heading p {
+  max-width: 720px;
+
+  margin: 28px 0 0;
+
+  color: rgba(220, 238, 243, 0.56);
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   MAIN EXPERIENCE
+========================================================= */
+
+.experience-main {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  min-height: 520px;
+
+  margin-top: 65px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(80, 220, 245, 0.13);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 29, 39, 0.76),
+      rgba(3, 15, 22, 0.62)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.2),
+    inset 0 0 80px rgba(0, 220, 255, 0.018);
+
+  backdrop-filter: blur(15px);
+}
+
+.experience-main::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #54eaff,
+      transparent
+    );
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   LEFT INFORMATION
+========================================================= */
+
+.experience-info {
+  position: relative;
+
+  padding: 45px;
+
+  overflow: hidden;
+
+  border-right: 1px solid rgba(80, 220, 245, 0.1);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 38, 50, 0.5),
+      rgba(4, 16, 23, 0.2)
+    );
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.experience-date {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: rgba(100, 225, 245, 0.52);
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+.date-line {
+  width: 25px;
+  height: 1px;
+
+  background: #55e8ff;
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.experience-role {
+  margin-top: 65px;
+}
+
+.experience-role > span {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: rgba(85, 230, 250, 0.4);
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+.experience-role h3 {
+  margin: 0;
+
+  font-size: 34px;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+.experience-role h4 {
+  max-width: 360px;
+
+  margin: 12px 0 0;
+
+  color: rgba(220, 240, 244, 0.52);
+
+  font-size: 11px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================================
+   COMPANY
+========================================================= */
+
+.experience-company {
+  margin-top: 27px;
+
+  color: rgba(91, 229, 248, 0.68);
+
+  font-size: 9px;
+
+  letter-spacing: 1.7px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.experience-description {
+  max-width: 490px;
+
+  margin-top: 38px;
+}
+
+.experience-description p {
+  margin: 0;
+
+  color: rgba(220, 235, 240, 0.48);
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SPECIALTIES
+========================================================= */
+
+.experience-specialties {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 30px;
+}
+
+.experience-specialties span {
+  padding: 7px 10px;
+
+  border: 1px solid rgba(80, 220, 245, 0.12);
+
+  color: rgba(100, 230, 248, 0.56);
+
+  background: rgba(0, 220, 255, 0.025);
+
+  font-size: 7px;
+
+  letter-spacing: 1.2px;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.experience-specialties span:hover {
+  border-color: rgba(80, 230, 245, 0.3);
+
+  background: rgba(0, 220, 255, 0.05);
+}
+
+
+/* =========================================================
+   RIGHT SCANNER VISUAL
+========================================================= */
+
+.experience-visual {
+  position: relative;
+
+  min-height: 520px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 220, 255, 0.055),
+      transparent 58%
+    );
+}
+
+
+/* =========================================================
+   SCANNER RINGS
+========================================================= */
+
+.scanner-ring {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(75, 225, 248, 0.12);
+}
+
+.ring-one {
+  width: 390px;
+  height: 390px;
+
+  animation: experienceRingRotate 22s linear infinite;
+}
+
+.ring-two {
+  width: 300px;
+  height: 300px;
+
+  border-style: dashed;
+
+  border-color: rgba(75, 225, 248, 0.1);
+
+  animation:
+    experienceRingRotateReverse
+    16s
+    linear
+    infinite;
+}
+
+.ring-three {
+  width: 210px;
+  height: 210px;
+
+  border-color: rgba(75, 225, 248, 0.17);
+}
+
+
+/* =========================================================
+   SCANNER CORE
+========================================================= */
+
+.scanner-core {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 150px;
+  height: 150px;
+
+  border: 1px solid rgba(78, 228, 249, 0.2);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 220, 255, 0.055),
+      transparent 68%
+    );
+
+  box-shadow:
+    0 0 35px rgba(0, 220, 255, 0.04),
+    inset 0 0 35px rgba(0, 220, 255, 0.04);
+}
+
+.scanner-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  border: 1px solid rgba(84, 232, 255, 0.2);
+
+  border-radius: 50%;
+
+  color: #5ceaff;
+
+  background: rgba(0, 220, 255, 0.025);
+
+  font-size: 20px;
+
+  box-shadow:
+    0 0 18px rgba(0, 220, 255, 0.07);
+}
+
+
+/* =========================================================
+   SCANNER LABEL
+========================================================= */
+
+.scanner-label {
+  position: absolute;
+
+  left: 50%;
+  bottom: -48px;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+
+  white-space: nowrap;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+}
+
+.scanner-label span {
+  color: rgba(90, 225, 246, 0.35);
+}
+
+.scanner-label strong {
+  color: rgba(225, 245, 248, 0.62);
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   CROSS HAIRS
+========================================================= */
+
+.scanner-cross {
+  position: absolute;
+
+  background: rgba(80, 225, 245, 0.08);
+}
+
+.scanner-cross.horizontal {
+  width: 100%;
+  height: 1px;
+
+  left: 0;
+  top: 50%;
+}
+
+.scanner-cross.vertical {
+  width: 1px;
+  height: 100%;
+
+  left: 50%;
+  top: 0;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.visual-status {
+  position: absolute;
+
+  right: 30px;
+  bottom: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(92, 226, 246, 0.45);
+
+  font-size: 7px;
+
+  letter-spacing: 1.7px;
+}
+
+.visual-status span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #59eaff;
+
+  box-shadow:
+    0 0 8px rgba(89, 234, 255, 0.9);
+
+  animation: statusPulse 1.8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   RESPONSIBILITIES
+========================================================= */
+
+.responsibilities {
+  margin-top: 55px;
+}
+
+.responsibilities-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.responsibilities-header small {
+  color: rgba(95, 225, 245, 0.45);
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+}
+
+.responsibilities-header span {
+  color: rgba(95, 225, 245, 0.3);
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   RESPONSIBILITY GRID
+========================================================= */
+
+.responsibilities-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 10px;
+}
+
+.responsibility-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  min-height: 165px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(75, 220, 245, 0.08);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 30, 40, 0.5),
+      rgba(4, 16, 23, 0.35)
+    );
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.responsibility-item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(75, 225, 248, 0.22);
+
+  background:
+    rgba(0, 220, 255, 0.035);
+}
+
+
+/* =========================================================
+   RESPONSIBILITY ICON
+========================================================= */
+
+.responsibility-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(80, 225, 248, 0.13);
+
+  color: #55e8ff;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIBILITY CONTENT
+========================================================= */
+
+.responsibility-item > div:last-child {
+  min-width: 0;
+}
+
+.responsibility-item > div:last-child small {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: rgba(85, 225, 245, 0.3);
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+.responsibility-item h4 {
+  margin: 0 0 8px;
+
+  color: rgba(239, 249, 251, 0.82);
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.8px;
+
+  line-height: 1.4;
+}
+
+.responsibility-item p {
+  margin: 0;
+
+  color: rgba(210, 230, 236, 0.42);
+
+  font-size: 8px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FOOTER STRIP
+========================================================= */
+
+.experience-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+  margin-top: 50px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(80, 220, 245, 0.08);
+
+  color: rgba(100, 225, 245, 0.4);
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+}
+
+.experience-footer i {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background: rgba(80, 225, 245, 0.35);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes experienceRingRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes experienceRingRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes statusPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .experience-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .experience-main {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-info {
+    min-height: 500px;
+
+    border-right: none;
+
+    border-bottom: 1px solid rgba(80, 220, 245, 0.1);
+  }
+
+  .experience-visual {
+    min-height: 430px;
+  }
+
+  .responsibilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .experience-section {
+    padding-top: 110px;
+  }
+
+  .experience-heading h2 {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  .experience-info {
+    padding: 35px;
+  }
+
+  .experience-role {
+    margin-top: 50px;
+  }
+
+  .experience-role h3 {
+    font-size: 30px;
+  }
+
+  .responsibilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 95px 20px 65px;
+  }
+
+  .experience-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .experience-heading h2 {
+    font-size: clamp(2.7rem, 13vw, 4rem);
+
+    letter-spacing: -2px;
+  }
+
+  .experience-heading p {
+    margin-top: 22px;
+
+    font-size: 12px;
+
+    line-height: 1.75;
+  }
+
+  .experience-main {
+    margin-top: 48px;
+  }
+
+  .experience-info {
+    min-height: 470px;
+
+    padding: 27px;
+  }
+
+  .experience-role {
+    margin-top: 48px;
+  }
+
+  .experience-role h3 {
+    font-size: 27px;
+  }
+
+  .experience-role h4 {
+    font-size: 10px;
+  }
+
+  .experience-company {
+    font-size: 8px;
+
+    letter-spacing: 1.3px;
+  }
+
+  .experience-description {
+    margin-top: 28px;
+  }
+
+  .experience-description p {
+    font-size: 10px;
+
+    line-height: 1.7;
+  }
+
+  .experience-visual {
+    min-height: 400px;
+  }
+
+  .ring-one {
+    width: 300px;
+    height: 300px;
+  }
+
+  .ring-two {
+    width: 235px;
+    height: 235px;
+  }
+
+  .ring-three {
+    width: 170px;
+    height: 170px;
+  }
+
+  .scanner-core {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scanner-inner {
+    width: 50px;
+    height: 50px;
+  }
+
+  .visual-status {
+    right: 20px;
+    bottom: 18px;
+  }
+
+  .responsibilities {
+    margin-top: 45px;
+  }
+
+  .responsibilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .responsibility-item {
+    min-height: auto;
+
+    padding: 18px;
+  }
+
+  .experience-footer {
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    line-height: 1.8;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .experience-section {
+    padding: 85px 16px 55px;
+  }
+
+  .experience-heading h2 {
+    font-size: 2.6rem;
+  }
+
+  .experience-info {
+    min-height: 440px;
+
+    padding: 23px;
+  }
+
+  .experience-role h3 {
+    font-size: 25px;
+  }
+
+  .experience-specialties {
+    gap: 5px;
+  }
+
+  .experience-specialties span {
+    padding: 6px 8px;
+
+    font-size: 6px;
+  }
+
+  .experience-visual {
+    min-height: 350px;
+  }
+
+  .ring-one {
+    width: 260px;
+    height: 260px;
+  }
+
+  .ring-two {
+    width: 205px;
+    height: 205px;
+  }
+
+  .ring-three {
+    width: 150px;
+    height: 150px;
+  }
+
+  .scanner-core {
+    width: 105px;
+    height: 105px;
+  }
+
+  .scanner-inner {
+    width: 44px;
+    height: 44px;
+
+    font-size: 16px;
+  }
+
+  .visual-status {
+    font-size: 6px;
+
+    letter-spacing: 1.2px;
+  }
+
+  .experience-footer {
+    font-size: 6px;
+  }
+}
+
+/* =========================================================
+   LIVE RADIATION / RADAR SCANNER EFFECT
+========================================================= */
+
+/* Circular radar sweep */
+.experience-visual::before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 520px;
+  height: 520px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 285deg,
+      rgba(82, 232, 255, 0.02) 315deg,
+      rgba(82, 232, 255, 0.2) 345deg,
+      rgba(82, 232, 255, 0.03) 360deg
+    );
+
+  -webkit-mask:
+    radial-gradient(
+      circle,
+      transparent 0%,
+      transparent 28%,
+      #000 45%,
+      #000 100%
+    );
+
+  mask:
+    radial-gradient(
+      circle,
+      transparent 0%,
+      transparent 28%,
+      #000 45%,
+      #000 100%
+    );
+
+  pointer-events: none;
+
+  opacity: 0.75;
+
+  z-index: 0;
+
+  animation: radarSweep 5s linear infinite;
+}
+
+/* Expanding radiation pulse */
+.experience-visual::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 155px;
+  height: 155px;
+
+  transform: translate(-50%, -50%);
+
+  border: 1px solid rgba(82, 232, 255, 0.28);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  animation: radiationPulse 3.2s ease-out infinite;
+}
+
+
+/* Rings should remain above background sweep */
+.scanner-ring {
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* Outer ring subtle breathing effect */
+.ring-one {
+  animation:
+    experienceRingRotate 22s linear infinite,
+    ringBreathing 4s ease-in-out infinite;
+}
+
+.ring-two {
+  animation:
+    experienceRingRotateReverse 16s linear infinite,
+    ringBreathingReverse 4s ease-in-out infinite;
+}
+
+.ring-three {
+  animation: ringBreathing 3.5s ease-in-out infinite;
+}
+
+
+/* Core stays above rings */
+.scanner-core {
+  z-index: 3;
+
+  animation: scannerCorePulse 3s ease-in-out infinite;
+}
+
+
+/* Radiation icon glow */
+.scanner-inner {
+  animation: radiationIconPulse 2.4s ease-in-out infinite;
+}
+
+
+/* Crosshair above sweep but behind core */
+.scanner-cross {
+  z-index: 2;
+}
+
+
+/* Scanner label */
+.scanner-label {
+  z-index: 4;
+}
+
+
+/* =========================================================
+   RADAR ANIMATIONS
+========================================================= */
+
+@keyframes radarSweep {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes radiationPulse {
+  0% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(3.2);
+  }
+}
+
+@keyframes ringBreathing {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes ringBreathingReverse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes scannerCorePulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 35px rgba(0, 220, 255, 0.04),
+      inset 0 0 35px rgba(0, 220, 255, 0.04);
+  }
+
+  50% {
+    box-shadow:
+      0 0 55px rgba(0, 220, 255, 0.12),
+      inset 0 0 45px rgba(0, 220, 255, 0.09);
+  }
+}
+
+@keyframes radiationIconPulse {
+  0%,
+  100% {
+    color: #5ceaff;
+    box-shadow:
+      0 0 18px rgba(0, 220, 255, 0.07);
+    transform: scale(1);
+  }
+
+  50% {
+    color: #9af5ff;
+    box-shadow:
+      0 0 28px rgba(0, 220, 255, 0.22);
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-visual::before {
+    width: 420px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-visual::before {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/* =========================================================
+   OPTION 2 — RESPONSIBILITY CARD FUTURISTIC HOVER
+========================================================= */
+
+/* Keep the existing layout and add only smooth interaction */
+.responsibility-item {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Thin top highlight line */
+.responsibility-item::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 1px;
+
+  background: #59eaff;
+
+  box-shadow:
+    0 0 7px rgba(89, 234, 255, 0.75),
+    0 0 15px rgba(89, 234, 255, 0.3);
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  transition:
+    width 0.45s ease,
+    opacity 0.3s ease;
+}
+
+/* Subtle diagonal light sweep */
+.responsibility-item::after {
+  content: "";
+
+  position: absolute;
+  top: -80%;
+  left: -35%;
+
+  width: 35%;
+  height: 260%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(89, 234, 255, 0.055),
+    transparent
+  );
+
+  transform: rotate(20deg) translateX(-180%);
+  pointer-events: none;
+  z-index: 1;
+
+  transition: transform 0.75s ease;
+}
+
+/* Main hover */
+.responsibility-item:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(75, 225, 248, 0.38);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(12, 39, 51, 0.7),
+      rgba(4, 17, 25, 0.55)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.18),
+    0 0 22px rgba(0, 220, 255, 0.045),
+    inset 0 0 25px rgba(0, 220, 255, 0.025);
+}
+
+/* Top line expands */
+.responsibility-item:hover::before {
+  width: 72px;
+  opacity: 1;
+}
+
+/* Light sweep enters card */
+.responsibility-item:hover::after {
+  transform: rotate(20deg) translateX(420%);
+}
+
+/* Icon gets a subtle active state */
+.responsibility-item:hover .responsibility-icon {
+  border-color: rgba(85, 232, 255, 0.42);
+
+  color: #8cefff;
+
+  background: rgba(0, 220, 255, 0.07);
+
+  box-shadow:
+    0 0 14px rgba(0, 220, 255, 0.08),
+    inset 0 0 10px rgba(0, 220, 255, 0.04);
+
+  transform: translateY(-1px);
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Number highlight */
+.responsibility-item:hover > div:last-child small {
+  color: rgba(85, 232, 255, 0.65);
+  transition: color 0.3s ease;
+}
+
+/* Heading becomes slightly clearer */
+.responsibility-item:hover h4 {
+  color: rgba(245, 253, 255, 0.96);
+  transition: color 0.3s ease;
+}
+
+/* Description gets a very subtle brightness increase */
+.responsibility-item:hover p {
+  color: rgba(210, 235, 242, 0.58);
+  transition: color 0.3s ease;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .responsibility-item {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .responsibility-item:hover {
+    transform: none;
+  }
+
+  .responsibility-item::after {
+    display: none;
+  }
+
+  .responsibility-item:hover::before {
+    width: 50px;
+  }
+}

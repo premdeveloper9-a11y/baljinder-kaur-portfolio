@@ -1,0 +1,157 @@
+/* =========================================
+   TARGET CURSOR WRAPPER
+========================================= */
+
+.target-cursor-wrapper {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    pointer-events: none;
+
+    /* MUST BE ABOVE PROJECT MODAL */
+    z-index: 1000000;
+
+    /* Keep the original cursor style */
+    mix-blend-mode: difference;
+
+    transform: translate(-50%, -50%);
+
+    overflow: visible;
+}
+
+
+/* =========================================
+   CENTER DOT
+========================================= */
+
+.target-cursor-dot {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 4px;
+    height: 4px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    will-change: transform;
+
+    z-index: 1000001;
+}
+
+
+/* =========================================
+   CURSOR CORNERS
+========================================= */
+
+.target-cursor-corner {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 12px;
+    height: 12px;
+
+    border: 3px solid #fff;
+
+    pointer-events: none;
+
+    will-change: transform;
+
+    z-index: 1000001;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   TOP LEFT
+========================================= */
+
+.corner-tl {
+    transform: translate(-150%, -150%);
+
+    border-right: none;
+    border-bottom: none;
+}
+
+
+/* =========================================
+   TOP RIGHT
+========================================= */
+
+.corner-tr {
+    transform: translate(50%, -150%);
+
+    border-left: none;
+    border-bottom: none;
+}
+
+
+/* =========================================
+   BOTTOM RIGHT
+========================================= */
+
+.corner-br {
+    transform: translate(50%, 50%);
+
+    border-left: none;
+    border-top: none;
+}
+
+
+/* =========================================
+   BOTTOM LEFT
+========================================= */
+
+.corner-bl {
+    transform: translate(-150%, 50%);
+
+    border-right: none;
+    border-top: none;
+}
+
+
+/* =========================================
+   HIDE NORMAL CURSOR
+========================================= */
+
+body {
+    cursor: none;
+}
+
+
+/* =========================================
+   MODAL TARGET ELEMENTS
+========================================= */
+
+.projectModal .cursor-target {
+    cursor: none;
+}
+
+
+/* =========================================
+   IMPORTANT:
+   MODAL ELEMENTS MUST REMAIN INTERACTIVE
+========================================= */
+
+.projectModal .toolChip.cursor-target,
+.projectModal .journeyNumber.cursor-target,
+.projectModal .downloadProjectBtn.cursor-target,
+.projectModal .modalCloseBtn.cursor-target,
+.projectModal .closeBtn.cursor-target {
+    pointer-events: auto;
+}
