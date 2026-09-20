@@ -24,7 +24,7 @@ import {
 
 import * as THREE from "three";
 
-import "./PetCTScanner.css";
+import "./PETCTScanner.css";
 
 import scannerModel from "../../assets/3d/ct_scanner.glb";
 
