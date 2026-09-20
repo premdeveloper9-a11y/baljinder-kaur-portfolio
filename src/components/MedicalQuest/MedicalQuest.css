@@ -1,0 +1,2810 @@
+/* =========================================================
+   MEDICAL QUEST
+   CLEAN CAMPAIGN UI
+========================================================= */
+
+:root {
+  --mq-bg: #020709;
+  --mq-bg-soft: #071216;
+  --mq-panel: rgba(7, 20, 24, 0.88);
+  --mq-panel-soft: rgba(10, 25, 30, 0.72);
+
+  --mq-cyan: #7ad7ea;
+  --mq-cyan-bright: #b9f3ff;
+  --mq-cyan-dark: rgba(122, 215, 234, 0.18);
+
+  --mq-white: #f4fbfd;
+  --mq-muted: #83969c;
+  --mq-muted-dark: #52656b;
+
+  --mq-green: #55e6a5;
+  --mq-red: #ff6879;
+  --mq-yellow: #ffd36a;
+
+  --mq-border: rgba(122, 215, 234, 0.15);
+  --mq-border-bright: rgba(122, 215, 234, 0.38);
+
+  --mq-radius: 14px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.medicalQuestOverlay *,
+.medicalQuestOverlay *::before,
+.medicalQuestOverlay *::after {
+  box-sizing: border-box;
+}
+
+.medicalQuestOverlay button {
+  font: inherit;
+}
+
+.medicalQuestOverlay button:focus-visible {
+  outline: 2px solid var(--mq-cyan);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   MAIN OVERLAY
+========================================================= */
+
+.medicalQuestOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  width: 100%;
+  height: 100dvh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(45, 143, 163, 0.15),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 100% 80%,
+      rgba(39, 111, 126, 0.08),
+      transparent 35%
+    ),
+    var(--mq-bg);
+
+  color: var(--mq-white);
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================================
+   GRID BACKGROUND
+========================================================= */
+
+.medicalQuestOverlay::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(122, 215, 234, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(122, 215, 234, 0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    black,
+    transparent 95%
+  );
+
+  z-index: 0;
+}
+
+/* =========================================================
+   SCANLINES
+========================================================= */
+
+.medicalQuestScanlines {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 50;
+
+  opacity: 0.15;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(255, 255, 255, 0.018) 4px
+    );
+}
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.medicalQuestClose {
+  position: fixed;
+
+  top: 24px;
+  right: 28px;
+
+  z-index: 100;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid var(--mq-border-bright);
+  border-radius: 50%;
+
+  background: rgba(3, 10, 12, 0.82);
+
+  color: var(--mq-white);
+
+  font-size: 27px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.medicalQuestClose:hover {
+  color: var(--mq-cyan-bright);
+
+  background: rgba(122, 215, 234, 0.1);
+
+  border-color: var(--mq-cyan);
+
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.medicalQuestEyebrow {
+  display: inline-block;
+
+  color: var(--mq-cyan);
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.35em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.medicalQuestIntro {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 40px 24px;
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.medicalQuestLogo {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  animation: mqIntroReveal 0.9s ease both;
+}
+
+.medicalQuestNameBox {
+  position: relative;
+
+  margin-top: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  line-height: 0.82;
+}
+
+.medicalQuestNameBox::before,
+.medicalQuestNameBox::after {
+  content: "";
+
+  position: absolute;
+
+  width: 32px;
+  height: 32px;
+
+  border-color: var(--mq-cyan);
+  border-style: solid;
+}
+
+.medicalQuestNameBox::before {
+  top: -22px;
+  left: -42px;
+
+  border-width: 2px 0 0 2px;
+}
+
+.medicalQuestNameBox::after {
+  bottom: -22px;
+  right: -42px;
+
+  border-width: 0 2px 2px 0;
+}
+
+.medicalQuestNameBox span {
+  color: var(--mq-white);
+
+  font-size: clamp(42px, 7vw, 86px);
+
+  font-weight: 900;
+
+  letter-spacing: -0.05em;
+}
+
+.medicalQuestNameBox strong {
+  color: var(--mq-cyan);
+
+  font-size: clamp(58px, 10vw, 120px);
+
+  font-weight: 950;
+
+  letter-spacing: -0.07em;
+
+  text-shadow:
+    0 0 30px rgba(122, 215, 234, 0.18);
+}
+
+.medicalQuestLogo p {
+  margin-top: 34px;
+
+  color: var(--mq-muted);
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 0.3em;
+}
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.medicalQuestStartButton {
+  position: relative;
+
+  min-width: 220px;
+
+  margin-top: 42px;
+
+  padding: 15px 22px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+
+  border: 1px solid var(--mq-border-bright);
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(122, 215, 234, 0.15),
+      rgba(122, 215, 234, 0.03)
+    );
+
+  color: var(--mq-white);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.medicalQuestStartButton span {
+  color: var(--mq-cyan);
+
+  font-size: 20px;
+
+  transition: transform 0.25s ease;
+}
+
+.medicalQuestStartButton:hover {
+  border-color: var(--mq-cyan);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(122, 215, 234, 0.22),
+      rgba(122, 215, 234, 0.06)
+    );
+
+  box-shadow:
+    0 0 28px rgba(122, 215, 234, 0.12);
+
+  transform: translateY(-2px);
+}
+
+.medicalQuestStartButton:hover span {
+  transform: translateX(5px);
+}
+
+.medicalQuestDisclaimer {
+  margin-top: 22px;
+
+  color: var(--mq-muted-dark);
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.medicalQuestMap {
+  position: relative;
+  z-index: 2;
+
+  width: min(1420px, 100%);
+
+  min-height: 100dvh;
+
+  margin: 0 auto;
+
+  padding:
+    85px
+    72px
+    70px;
+}
+
+/* =========================================================
+   MAP HEADER
+========================================================= */
+
+.medicalQuestHeader {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding-bottom: 34px;
+
+  border-bottom: 1px solid
+    rgba(122, 215, 234, 0.08);
+}
+
+.medicalQuestHeader h1 {
+  margin: 10px 0 0;
+
+  color: var(--mq-white);
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 0.95;
+
+  font-weight: 950;
+
+  letter-spacing: -0.045em;
+}
+
+/* =========================================================
+   MAP STATS
+========================================================= */
+
+.medicalQuestStats {
+  display: flex;
+
+  gap: 10px;
+}
+
+.medicalQuestStats > div {
+  min-width: 105px;
+
+  padding: 14px 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--mq-border);
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 25, 29, 0.9),
+      rgba(3, 12, 15, 0.9)
+    );
+}
+
+.medicalQuestStats small,
+.medicalQuestMissionStats small {
+  color: var(--mq-muted);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.medicalQuestStats strong {
+  margin-top: 5px;
+
+  color: var(--mq-cyan);
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   XP BAR
+========================================================= */
+
+.medicalQuestMapFooter {
+  width: 100%;
+
+  margin-top: 28px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.medicalQuestXPBar {
+  flex: 1;
+
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: rgba(122, 215, 234, 0.07);
+}
+
+.medicalQuestXPFill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(74, 171, 194, 0.8),
+      var(--mq-cyan)
+    );
+
+  box-shadow:
+    0 0 15px rgba(122, 215, 234, 0.25);
+
+  transition: width 0.5s ease;
+}
+
+.medicalQuestMapFooter > span {
+  min-width: 72px;
+
+  color: var(--mq-muted);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+/* =========================================================
+   CONTINUE QUEST BUTTON
+========================================================= */
+
+.medicalQuestContinueButton {
+  margin-top: 28px;
+  margin-bottom: 30px;
+
+  margin-left: auto;
+  margin-right: 0;
+
+  min-width: 190px;
+}
+
+/* =========================================================
+   DEPARTMENT GRID
+========================================================= */
+
+.medicalQuestDepartmentGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 18px;
+
+  margin-top: 10px;
+}
+
+/* =========================================================
+   DEPARTMENT CARD
+========================================================= */
+
+.medicalQuestDepartmentCard {
+  position: relative;
+
+  min-height: 245px;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  text-align: left;
+
+  border: 1px solid var(--mq-border);
+
+  border-radius: var(--mq-radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 27, 32, 0.9),
+      rgba(3, 12, 15, 0.92)
+    );
+
+  color: var(--mq-white);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.medicalQuestDepartmentCard::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(122, 215, 234, 0.06),
+      transparent 40%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.medicalQuestDepartmentCard:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--mq-border-bright);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(122, 215, 234, 0.06);
+}
+
+.medicalQuestDepartmentCard:hover::before {
+  opacity: 1;
+}
+
+/* =========================================================
+   DEPARTMENT ICON
+========================================================= */
+
+.medicalQuestDepartmentIcon {
+  position: relative;
+  z-index: 1;
+
+  font-size: 48px;
+
+  filter:
+    drop-shadow(
+      0 0 12px
+      rgba(122, 215, 234, 0.15)
+    );
+
+  transition:
+    transform 0.3s ease;
+}
+
+.medicalQuestDepartmentCard:hover
+  .medicalQuestDepartmentIcon {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   DEPARTMENT TEXT
+========================================================= */
+
+.medicalQuestDepartmentCard > div {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+}
+
+.medicalQuestDepartmentCard h2 {
+  margin: 0 0 8px;
+
+  color: var(--mq-white);
+
+  font-size: 22px;
+
+  font-weight: 900;
+
+  letter-spacing: -0.02em;
+}
+
+.medicalQuestDepartmentCard p {
+  max-width: 290px;
+
+  margin: 0;
+
+  color: var(--mq-muted);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.medicalQuestDepartmentCard small {
+  display: block;
+
+  margin-top: 14px;
+
+  color: var(--mq-cyan);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+/* =========================================================
+   DEPARTMENT ARROW
+========================================================= */
+
+.medicalQuestDepartmentArrow {
+  position: absolute;
+
+  right: 25px;
+  bottom: 25px;
+
+  color: var(--mq-cyan);
+
+  font-size: 18px;
+
+  transition:
+    transform 0.25s ease;
+}
+
+.medicalQuestDepartmentCard:hover
+  .medicalQuestDepartmentArrow {
+  transform: translateX(5px);
+}
+
+/* =========================================================
+   ACTIVE DEPARTMENT
+========================================================= */
+
+.medicalQuestDepartmentCard.active {
+  border-color:
+    rgba(122, 215, 234, 0.42);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(122, 215, 234, 0.12),
+    0 0 25px
+      rgba(122, 215, 234, 0.05);
+}
+
+.medicalQuestDepartmentCard.active::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--mq-cyan),
+      transparent
+    );
+}
+
+/* =========================================================
+   COMPLETED DEPARTMENT
+========================================================= */
+
+.medicalQuestDepartmentCard.completed {
+  border-color:
+    rgba(85, 230, 165, 0.25);
+}
+
+.medicalQuestDepartmentCard.completed
+  .medicalQuestDepartmentArrow {
+  color: var(--mq-green);
+}
+
+.medicalQuestDepartmentCard.completed
+  small {
+  color: var(--mq-green);
+}
+
+/* =========================================================
+   LOCKED DEPARTMENT
+========================================================= */
+
+.medicalQuestDepartmentCard.locked {
+  cursor: not-allowed;
+
+  opacity: 0.38;
+
+  filter: grayscale(0.25);
+
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(8, 15, 18, 0.8),
+      rgba(8, 15, 18, 0.8) 5px,
+      rgba(10, 18, 21, 0.8) 5px,
+      rgba(10, 18, 21, 0.8) 10px
+    );
+}
+
+.medicalQuestDepartmentCard.locked:hover {
+  transform: none;
+
+  border-color: var(--mq-border);
+
+  box-shadow: none;
+}
+
+.medicalQuestDepartmentCard.locked
+  .medicalQuestDepartmentIcon {
+  filter: grayscale(1);
+
+  opacity: 0.55;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+.medicalQuestReset {
+  display: block;
+
+  margin: 28px auto 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--mq-muted-dark);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease;
+}
+
+.medicalQuestReset:hover {
+  color: var(--mq-red);
+}
+
+/* =========================================================
+   MISSION SCREEN
+========================================================= */
+
+.medicalQuestMissionScreen {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, 100%);
+
+  min-height: 100dvh;
+
+  margin: 0 auto;
+
+  padding:
+    75px
+    40px
+    70px;
+}
+
+/* =========================================================
+   MISSION HEADER
+========================================================= */
+
+.medicalQuestMissionHeader {
+  display: grid;
+
+  grid-template-columns:
+    130px 1fr auto;
+
+  align-items: center;
+
+  gap: 30px;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid
+    rgba(122, 215, 234, 0.08);
+}
+
+.medicalQuestMissionHeader h1 {
+  margin: 8px 0 0;
+
+  color: var(--mq-white);
+
+  font-size: clamp(30px, 4vw, 54px);
+
+  line-height: 0.95;
+
+  font-weight: 950;
+
+  letter-spacing: -0.04em;
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.medicalQuestBackButton {
+  justify-self: start;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--mq-muted);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.medicalQuestBackButton:hover {
+  color: var(--mq-cyan);
+
+  transform: translateX(-4px);
+}
+
+/* =========================================================
+   MISSION STATS
+========================================================= */
+
+.medicalQuestMissionStats {
+  display: flex;
+
+  gap: 8px;
+}
+
+.medicalQuestMissionStats > div {
+  min-width: 72px;
+
+  padding: 10px 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  border: 1px solid var(--mq-border);
+
+  border-radius: 8px;
+
+  background: rgba(8, 21, 25, 0.8);
+}
+
+.medicalQuestMissionStats strong {
+  margin-top: 4px;
+
+  color: var(--mq-cyan);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   MISSION PROGRESS
+========================================================= */
+
+.medicalQuestMissionProgress {
+  margin-top: 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  color: var(--mq-muted);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+}
+
+.medicalQuestProgressTrack {
+  flex: 1;
+
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(122, 215, 234, 0.07);
+}
+
+.medicalQuestProgressTrack span {
+  display: block;
+
+  height: 100%;
+
+  background: var(--mq-cyan);
+
+  box-shadow:
+    0 0 12px
+      rgba(122, 215, 234, 0.4);
+
+  transition: width 0.4s ease;
+}
+
+/* =========================================================
+   RADIOLOGY
+========================================================= */
+
+.radiologyMission {
+  margin-top: 35px;
+}
+
+.radiologyMissionTop,
+.urologyMissionTop,
+.dermatologyMissionTop {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.radiologyScanBadge,
+.urologyPathStatus,
+.dermatologyBadge {
+  color: var(--mq-cyan);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.18em;
+}
+
+.missionDifficulty {
+  padding: 5px 9px;
+
+  border: 1px solid
+    rgba(122, 215, 234, 0.18);
+
+  border-radius: 5px;
+
+  color: var(--mq-muted);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   RADIOLOGY SCAN
+========================================================= */
+
+.radiologyScanArea {
+  display: grid;
+
+  grid-template-columns: 1fr 170px;
+
+  gap: 18px;
+}
+
+.radiologyScanFrame {
+  position: relative;
+
+  min-height: 350px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid
+    rgba(122, 215, 234, 0.22);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(122, 215, 234, 0.08),
+      rgba(1, 8, 10, 0.95) 70%
+    );
+
+  box-shadow:
+    inset 0 0 50px rgba(0, 0, 0, 0.45);
+}
+
+.radiologyScanGrid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      rgba(122, 215, 234, 0.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(122, 215, 234, 0.08) 1px,
+      transparent 1px
+    );
+
+  background-size: 24px 24px;
+}
+
+.radiologyScanBody {
+  position: relative;
+
+  width: 210px;
+  height: 300px;
+
+  opacity: 0.82;
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      rgba(122, 215, 234, 0.12)
+    );
+}
+
+.scanHead {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 62px;
+  height: 62px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid
+    rgba(190, 239, 248, 0.45);
+
+  border-radius: 50%;
+}
+
+.scanNeck {
+  position: absolute;
+
+  top: 55px;
+  left: 50%;
+
+  width: 25px;
+  height: 32px;
+
+  transform: translateX(-50%);
+
+  border-left: 2px solid
+    rgba(190, 239, 248, 0.4);
+
+  border-right: 2px solid
+    rgba(190, 239, 248, 0.4);
+}
+
+.scanChest {
+  position: absolute;
+
+  top: 78px;
+  left: 50%;
+
+  width: 140px;
+  height: 112px;
+
+  transform: translateX(-50%);
+
+  border: 2px solid
+    rgba(190, 239, 248, 0.28);
+
+  border-radius:
+    45px 45px 35px 35px;
+}
+
+.scanLung {
+  position: absolute;
+
+  top: 92px;
+
+  width: 48px;
+  height: 78px;
+
+  border: 2px solid
+    rgba(184, 235, 246, 0.38);
+
+  border-radius: 50%;
+}
+
+.scanLung.left {
+  left: 50px;
+}
+
+.scanLung.right {
+  right: 50px;
+}
+
+.scanHeart {
+  position: absolute;
+
+  top: 118px;
+  left: 50%;
+
+  width: 25px;
+  height: 25px;
+
+  transform: translateX(-50%) rotate(45deg);
+
+  border-radius: 5px;
+
+  background:
+    rgba(122, 215, 234, 0.2);
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.45);
+}
+
+.scanSpine {
+  position: absolute;
+
+  top: 80px;
+  left: 50%;
+
+  width: 5px;
+  height: 150px;
+
+  transform: translateX(-50%);
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(200, 240, 247, 0.45) 0 8px,
+      transparent 8px 12px
+    );
+}
+
+.scanAbdomen {
+  position: absolute;
+
+  top: 185px;
+  left: 50%;
+
+  width: 100px;
+  height: 80px;
+
+  transform: translateX(-50%);
+
+  border:
+    1px solid
+    rgba(190, 239, 248, 0.18);
+
+  border-radius: 30%;
+}
+
+.scanCorner {
+  position: absolute;
+
+  width: 28px;
+  height: 28px;
+
+  border-color: var(--mq-cyan);
+
+  opacity: 0.55;
+}
+
+.scanTL {
+  top: 15px;
+  left: 15px;
+
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+
+.scanTR {
+  top: 15px;
+  right: 15px;
+
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.scanBL {
+  bottom: 15px;
+  left: 15px;
+
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+}
+
+.scanBR {
+  bottom: 15px;
+  right: 15px;
+
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+
+.scanLine {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 0;
+
+  height: 1px;
+
+  background: var(--mq-cyan);
+
+  box-shadow:
+    0 0 12px
+      rgba(122, 215, 234, 0.9);
+
+  opacity: 0.55;
+
+  animation:
+    mqScanLine 3.5s linear infinite;
+}
+
+.scanData {
+  min-height: 350px;
+
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  border: 1px solid var(--mq-border);
+
+  border-radius: 10px;
+
+  background:
+    rgba(5, 15, 18, 0.72);
+
+  color: var(--mq-muted);
+
+  font-size: 8px;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   UROLOGY
+========================================================= */
+
+.urologyMission {
+  margin-top: 35px;
+}
+
+.urologyBody {
+  min-height: 350px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.16);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(122, 215, 234, 0.07),
+      transparent 65%
+    );
+}
+
+.urologyAnatomy {
+  position: relative;
+
+  width: 360px;
+  height: 320px;
+}
+
+.kidneyVisual {
+  position: absolute;
+
+  top: 35px;
+
+  width: 75px;
+  height: 100px;
+
+  border:
+    3px solid
+    rgba(204, 123, 142, 0.72);
+
+  border-radius:
+    50% 40% 45% 50%;
+
+  background:
+    radial-gradient(
+      circle at 65% 50%,
+      rgba(255, 110, 140, 0.25),
+      rgba(75, 24, 34, 0.6)
+    );
+
+  box-shadow:
+    0 0 22px
+      rgba(255, 100, 130, 0.08);
+}
+
+.leftKidney {
+  left: 70px;
+
+  transform: rotate(-10deg);
+}
+
+.rightKidney {
+  right: 70px;
+
+  transform: scaleX(-1) rotate(-10deg);
+}
+
+.kidneyLabel {
+  position: absolute;
+
+  bottom: -28px;
+  left: 50%;
+
+  width: max-content;
+
+  transform: translateX(-50%);
+
+  color: var(--mq-muted);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.ureterVisual {
+  position: absolute;
+
+  top: 122px;
+
+  width: 3px;
+  height: 90px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(220, 143, 153, 0.7),
+      rgba(122, 215, 234, 0.5)
+    );
+
+  border-radius: 10px;
+}
+
+.leftUreter {
+  left: 105px;
+
+  transform: rotate(4deg);
+}
+
+.rightUreter {
+  right: 105px;
+
+  transform: rotate(-4deg);
+}
+
+.bladderVisual {
+  position: absolute;
+
+  left: 50%;
+  bottom: 50px;
+
+  width: 95px;
+  height: 72px;
+
+  transform: translateX(-50%);
+
+  border:
+    3px solid
+    rgba(122, 215, 234, 0.45);
+
+  border-radius:
+    20px 20px 42px 42px;
+
+  background:
+    rgba(122, 215, 234, 0.05);
+}
+
+.bladderLabel {
+  position: absolute;
+
+  left: 50%;
+  bottom: -25px;
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  color: var(--mq-muted);
+
+  font-size: 7px;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.urethraVisual {
+  position: absolute;
+
+  left: 50%;
+  bottom: 10px;
+
+  width: 3px;
+  height: 38px;
+
+  transform: translateX(-50%);
+
+  background:
+    rgba(122, 215, 234, 0.55);
+}
+
+.urinaryLabel {
+  position: absolute;
+
+  left: 12px;
+  bottom: 0;
+
+  white-space: nowrap;
+
+  color: var(--mq-muted);
+
+  font-size: 7px;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   DERMATOLOGY
+========================================================= */
+
+.dermatologyMission {
+  margin-top: 35px;
+}
+
+.dermatologyBody {
+  min-height: 350px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(213, 156, 255, 0.16);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(213, 156, 255, 0.07),
+      transparent 65%
+    );
+}
+
+.skinScanVisual {
+  position: relative;
+
+  width: min(560px, 90%);
+
+  height: 270px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(213, 156, 255, 0.28);
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(245, 188, 170, 0.18),
+      rgba(178, 120, 120, 0.12) 30%,
+      rgba(116, 78, 72, 0.12) 60%,
+      rgba(70, 46, 43, 0.15)
+    );
+}
+
+.skinScanGrid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.25;
+
+  background-image:
+    linear-gradient(
+      rgba(213, 156, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(213, 156, 255, 0.15) 1px,
+      transparent 1px
+    );
+
+  background-size: 22px 22px;
+}
+
+.skinLayer {
+  position: absolute;
+
+  left: 25px;
+  right: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-left: 18px;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.15em;
+}
+
+.skinEpidermis {
+  top: 20px;
+
+  height: 55px;
+
+  background:
+    rgba(247, 193, 181, 0.14);
+}
+
+.skinDermis {
+  top: 75px;
+
+  height: 100px;
+
+  background:
+    rgba(191, 123, 144, 0.12);
+}
+
+.skinSubcutaneous {
+  top: 175px;
+  bottom: 20px;
+
+  background:
+    rgba(205, 165, 93, 0.1);
+}
+
+.skinHair {
+  position: absolute;
+
+  left: 50%;
+  top: 58px;
+
+  width: 3px;
+  height: 100px;
+
+  background:
+    rgba(30, 25, 27, 0.85);
+
+  transform: rotate(8deg);
+}
+
+.skinHair::before {
+  content: "";
+
+  position: absolute;
+
+  left: -8px;
+  bottom: -5px;
+
+  width: 18px;
+  height: 25px;
+
+  border:
+    2px solid
+    rgba(50, 30, 35, 0.8);
+
+  border-radius: 50%;
+}
+
+.skinHair span {
+  position: absolute;
+
+  top: -25px;
+  left: -1px;
+
+  width: 5px;
+  height: 30px;
+
+  border-radius: 50%;
+
+  background: #1c1718;
+}
+
+.skinPore {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border:
+    1px solid
+    rgba(255, 220, 220, 0.55);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.skinPoreOne {
+  left: 28%;
+  top: 110px;
+}
+
+.skinPoreTwo {
+  left: 68%;
+  top: 138px;
+}
+
+.skinPoreThree {
+  left: 40%;
+  top: 185px;
+}
+
+/* =========================================================
+   GENERIC FUTURE DEPARTMENT
+========================================================= */
+
+.medicalQuestGenericMission {
+  min-height: 350px;
+
+  margin-top: 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  border:
+    1px solid
+    var(--mq-border);
+
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(122, 215, 234, 0.06),
+      transparent 65%
+    );
+}
+
+.medicalQuestGenericIcon {
+  font-size: 80px;
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      rgba(122, 215, 234, 0.15)
+    );
+}
+
+.medicalQuestGenericMission > span {
+  color: var(--mq-muted);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.medicalQuestQuestionBlock {
+  margin-top: 32px;
+}
+
+.medicalQuestQuestionBlock > span {
+  color: var(--mq-cyan);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.2em;
+}
+
+.medicalQuestQuestionBlock h2 {
+  max-width: 900px;
+
+  margin: 12px 0 0;
+
+  color: var(--mq-white);
+
+  font-size: clamp(22px, 3vw, 34px);
+
+  line-height: 1.25;
+
+  font-weight: 800;
+}
+
+/* =========================================================
+   UNIVERSAL ANSWERS
+========================================================= */
+
+.medicalQuestUniversalAnswers {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.medicalQuestUniversalAnswer {
+  min-height: 64px;
+
+  padding: 13px 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.13);
+
+  border-radius: 9px;
+
+  background:
+    rgba(7, 20, 24, 0.8);
+
+  color: #b8c8cc;
+
+  text-align: left;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.medicalQuestUniversalAnswer > span {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.15);
+
+  border-radius: 6px;
+
+  color: var(--mq-muted);
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.medicalQuestUniversalAnswer:hover {
+  border-color:
+    rgba(122, 215, 234, 0.4);
+
+  color: var(--mq-white);
+
+  background:
+    rgba(122, 215, 234, 0.06);
+
+  transform: translateY(-2px);
+}
+
+.medicalQuestUniversalAnswer.selected {
+  border-color: var(--mq-cyan);
+
+  color: var(--mq-white);
+
+  background:
+    rgba(122, 215, 234, 0.1);
+
+  box-shadow:
+    0 0 20px
+      rgba(122, 215, 234, 0.05);
+}
+
+.medicalQuestUniversalAnswer.selected
+  > span {
+  color: var(--mq-cyan);
+
+  border-color: var(--mq-cyan);
+}
+
+/* =========================================================
+   CORRECT / WRONG
+========================================================= */
+
+.medicalQuestUniversalAnswer.correct {
+  border-color:
+    rgba(85, 230, 165, 0.65);
+
+  background:
+    rgba(85, 230, 165, 0.08);
+
+  color: var(--mq-green);
+}
+
+.medicalQuestUniversalAnswer.wrong {
+  border-color:
+    rgba(255, 104, 121, 0.65);
+
+  background:
+    rgba(255, 104, 121, 0.08);
+
+  color: var(--mq-red);
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.medicalQuestSubmitButton {
+  display: flex;
+
+  margin:
+    20px
+    0
+    0
+    auto;
+
+  padding: 13px 22px;
+
+  border:
+    1px solid
+    var(--mq-border-bright);
+
+  border-radius: 7px;
+
+  background:
+    rgba(122, 215, 234, 0.08);
+
+  color: var(--mq-cyan);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.medicalQuestSubmitButton:hover:not(:disabled) {
+  background:
+    rgba(122, 215, 234, 0.16);
+
+  border-color: var(--mq-cyan);
+
+  transform: translateY(-2px);
+}
+
+.medicalQuestSubmitButton:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.3;
+}
+
+/* =========================================================
+   MISSION RESULT
+========================================================= */
+
+.medicalQuestMissionResult {
+  margin-top: 22px;
+
+  padding: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  border: 1px solid var(--mq-border);
+
+  border-radius: 10px;
+
+  background:
+    rgba(7, 18, 22, 0.9);
+}
+
+.medicalQuestMissionResult.success {
+  border-color:
+    rgba(85, 230, 165, 0.25);
+}
+
+.medicalQuestMissionResult.failure {
+  border-color:
+    rgba(255, 104, 121, 0.25);
+}
+
+.missionResultIcon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.25);
+
+  color: var(--mq-cyan);
+
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.medicalQuestMissionResult.success
+  .missionResultIcon {
+  color: var(--mq-green);
+
+  border-color:
+    rgba(85, 230, 165, 0.35);
+}
+
+.medicalQuestMissionResult.failure
+  .missionResultIcon {
+  color: var(--mq-red);
+
+  border-color:
+    rgba(255, 104, 121, 0.35);
+}
+
+.medicalQuestMissionResult strong {
+  display: block;
+
+  color: var(--mq-white);
+
+  font-size: 12px;
+
+  letter-spacing: 0.08em;
+}
+
+.medicalQuestMissionResult p {
+  margin: 5px 0 0;
+
+  color: var(--mq-muted);
+
+  font-size: 10px;
+}
+
+.medicalQuestResultButton {
+  margin-left: auto;
+
+  padding: 10px 14px;
+
+  border:
+    1px solid
+    var(--mq-border-bright);
+
+  border-radius: 6px;
+
+  background: transparent;
+
+  color: var(--mq-cyan);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.medicalQuestResultButton:hover {
+  background:
+    rgba(122, 215, 234, 0.08);
+
+  border-color: var(--mq-cyan);
+}
+
+/* =========================================================
+   KNOWLEDGE OVERLAY
+========================================================= */
+
+.medicalQuestKnowledgeOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 200;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background:
+    rgba(1, 6, 8, 0.78);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   KNOWLEDGE CARD
+========================================================= */
+
+.knowledgeCard {
+  position: relative;
+
+  width: min(520px, 100%);
+
+  padding: 40px;
+
+  text-align: center;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.28);
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 28, 33, 0.98),
+      rgba(3, 12, 15, 0.98)
+    );
+
+  box-shadow:
+    0 30px 100px
+      rgba(0, 0, 0, 0.5),
+    0 0 40px
+      rgba(122, 215, 234, 0.05);
+
+  animation:
+    mqCardReveal 0.35s ease both;
+}
+
+.knowledgeIcon {
+  width: 62px;
+  height: 62px;
+
+  margin: 20px auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(122, 215, 234, 0.25);
+
+  border-radius: 50%;
+
+  background:
+    rgba(122, 215, 234, 0.06);
+
+  font-size: 28px;
+
+  box-shadow:
+    0 0 25px
+      rgba(122, 215, 234, 0.06);
+}
+
+.knowledgeCard h2 {
+  margin: 0;
+
+  color: var(--mq-white);
+
+  font-size: 28px;
+
+  font-weight: 950;
+
+  letter-spacing: -0.03em;
+}
+
+.knowledgeCard p {
+  margin: 18px auto 0;
+
+  max-width: 410px;
+
+  color: var(--mq-muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+.knowledgeCard
+  .medicalQuestStartButton {
+  margin-top: 28px;
+}
+
+/* =========================================================
+   UNLOCK CARD
+========================================================= */
+
+.medicalQuestUnlockCard {
+  border-color:
+    rgba(85, 230, 165, 0.3);
+}
+
+.medicalQuestUnlockCard
+  .knowledgeIcon {
+  color: var(--mq-green);
+
+  border-color:
+    rgba(85, 230, 165, 0.35);
+}
+
+/* =========================================================
+   CAMPAIGN COMPLETE
+========================================================= */
+
+.medicalQuestMissionPreview {
+  min-height: 70dvh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.medicalQuestMissionPreview
+  .missionResultIcon {
+  margin-top: 25px;
+
+  width: 90px;
+  height: 90px;
+
+  font-size: 45px;
+
+  color: var(--mq-green);
+
+  border-color:
+    rgba(85, 230, 165, 0.35);
+
+  box-shadow:
+    0 0 35px
+      rgba(85, 230, 165, 0.08);
+}
+
+.medicalQuestMissionPreview h1 {
+  margin: 25px 0 0;
+
+  font-size:
+    clamp(35px, 5vw, 68px);
+
+  line-height: 0.95;
+
+  font-weight: 950;
+
+  letter-spacing: -0.05em;
+}
+
+.medicalQuestMissionPreview > p {
+  max-width: 580px;
+
+  margin-top: 18px;
+
+  color: var(--mq-muted);
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   RESULT STATS
+========================================================= */
+
+.missionResultStats {
+  margin-top: 30px;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.missionResultStats > div {
+  min-width: 100px;
+
+  padding: 15px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  border:
+    1px solid
+    var(--mq-border);
+
+  border-radius: 8px;
+
+  background:
+    rgba(8, 21, 25, 0.7);
+}
+
+.missionResultStats small {
+  color: var(--mq-muted);
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 0.16em;
+}
+
+.missionResultStats strong {
+  margin-top: 6px;
+
+  color: var(--mq-cyan);
+
+  font-size: 18px;
+}
+
+/* =========================================================
+   RESULT ACTIONS
+========================================================= */
+
+.missionResultActions {
+  display: flex;
+
+  gap: 12px;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes mqIntroReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes mqCardReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes mqScanLine {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(350px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .medicalQuestMap {
+    padding:
+      75px
+      35px
+      60px;
+  }
+
+  .medicalQuestDepartmentGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .medicalQuestMissionScreen {
+    padding:
+      70px
+      30px
+      60px;
+  }
+
+  .radiologyScanArea {
+    grid-template-columns: 1fr;
+  }
+
+  .scanData {
+    min-height: auto;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+  }
+}
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 800px) {
+  .medicalQuestClose {
+    top: 15px;
+    right: 15px;
+
+    width: 43px;
+    height: 43px;
+
+    font-size: 22px;
+  }
+
+  .medicalQuestHeader {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .medicalQuestHeader h1 {
+    font-size: 48px;
+  }
+
+  .medicalQuestStats {
+    width: 100%;
+  }
+
+  .medicalQuestStats > div {
+    flex: 1;
+
+    min-width: 0;
+  }
+
+  .medicalQuestMissionHeader {
+    grid-template-columns: 1fr;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .medicalQuestMissionStats {
+    width: 100%;
+  }
+
+  .medicalQuestMissionStats > div {
+    flex: 1;
+  }
+
+  .medicalQuestBackButton {
+    order: -1;
+  }
+
+  .medicalQuestUniversalAnswers {
+    grid-template-columns: 1fr;
+  }
+
+  .medicalQuestDepartmentCard {
+    min-height: 220px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .medicalQuestMap {
+    padding:
+      70px
+      18px
+      45px;
+  }
+
+  .medicalQuestHeader h1 {
+    font-size: 39px;
+  }
+
+  .medicalQuestEyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.25em;
+  }
+
+  .medicalQuestDepartmentGrid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .medicalQuestDepartmentCard {
+    min-height: 190px;
+
+    padding: 22px;
+  }
+
+  .medicalQuestDepartmentIcon {
+    font-size: 40px;
+  }
+
+  .medicalQuestDepartmentCard h2 {
+    font-size: 20px;
+  }
+
+  .medicalQuestDepartmentCard p {
+    font-size: 11px;
+  }
+
+  .medicalQuestContinueButton {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+  .medicalQuestMissionScreen {
+    padding:
+      70px
+      18px
+      45px;
+  }
+
+  .medicalQuestMissionHeader h1 {
+    font-size: 36px;
+  }
+
+  .medicalQuestMissionProgress {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .radiologyScanFrame {
+    min-height: 290px;
+  }
+
+  .radiologyScanBody {
+    transform: scale(0.82);
+  }
+
+  .scanData {
+    flex-direction: column;
+
+    gap: 6px;
+  }
+
+  .urologyBody,
+  .dermatologyBody,
+  .medicalQuestGenericMission {
+    min-height: 290px;
+  }
+
+  .urologyAnatomy {
+    transform: scale(0.82);
+  }
+
+  .skinScanVisual {
+    height: 235px;
+  }
+
+  .medicalQuestQuestionBlock h2 {
+    font-size: 23px;
+  }
+
+  .medicalQuestUniversalAnswer {
+    min-height: 58px;
+
+    font-size: 12px;
+  }
+
+  .medicalQuestMissionResult {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .medicalQuestResultButton {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+  .knowledgeCard {
+    padding: 30px 22px;
+  }
+
+  .knowledgeCard h2 {
+    font-size: 24px;
+  }
+
+  .missionResultStats {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .missionResultStats > div {
+    min-width: 0;
+
+    padding: 12px 8px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .medicalQuestNameBox span {
+    font-size: 38px;
+  }
+
+  .medicalQuestNameBox strong {
+    font-size: 62px;
+  }
+
+  .medicalQuestLogo p {
+    font-size: 9px;
+
+    letter-spacing: 0.2em;
+  }
+
+  .medicalQuestStats {
+    gap: 6px;
+  }
+
+  .medicalQuestStats > div {
+    padding: 10px 5px;
+  }
+
+  .medicalQuestStats strong {
+    font-size: 15px;
+  }
+
+  .medicalQuestMissionStats {
+    gap: 5px;
+  }
+
+  .medicalQuestMissionStats > div {
+    padding: 8px 5px;
+  }
+
+  .medicalQuestQuestionBlock h2 {
+    font-size: 21px;
+  }
+
+  .medicalQuestUniversalAnswer {
+    padding: 11px;
+
+    gap: 10px;
+  }
+
+  .medicalQuestUniversalAnswer > span {
+    width: 27px;
+    height: 27px;
+  }
+
+  .medicalQuestSubmitButton {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .urologyAnatomy {
+    transform: scale(0.68);
+  }
+
+  .medicalQuestMissionPreview h1 {
+    font-size: 38px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .medicalQuestOverlay *,
+  .medicalQuestOverlay *::before,
+  .medicalQuestOverlay *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}

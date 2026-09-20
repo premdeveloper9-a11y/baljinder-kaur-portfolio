@@ -13,7 +13,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import ScrollTop from "./components/ScrollTop/ScrollTop";
 
-import Lanyard from "./pages/Lanyard";
+
 
 function Portfolio() {
   return (
@@ -40,6 +40,7 @@ function Portfolio() {
       <Education />
       <Achievements />
       <Contact />
+      
       <Footer />
 
       <ScrollTop />
@@ -52,7 +53,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Portfolio />} />
-        <Route path="/lanyard" element={<Lanyard />} />
+       
       </Routes>
     </BrowserRouter>
   );
